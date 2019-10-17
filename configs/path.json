@@ -1,0 +1,68 @@
+{
+  "src": {
+    "pug": "src/static/*.pug",
+    "js": "src/static/",
+    "scss": "src/static/**/**/*.scss",
+    "images": "src/images/",
+    "fonts": "src/fonts/"
+  },
+  "build": {
+    "html": "build/",
+    "js": "build/js/",
+    "css": "build/styles/",
+    "images": "build/images",
+    "fonts": "build/fonts/**/*"
+  },
+  "prodaction": {
+    "html": "prodaction/",
+    "js": "prodaction/js/",
+    "css": "prodaction/styles/",
+    "images": "prodaction/images/",
+    "fonts": "prodaction/fonts/"
+  },
+  "watch": {
+    "pug": "src/static/**/**/*.pug",
+    "js": "src/js/**/*.js",
+    "scss": "src/static/**/*.scss",
+    "images": "src/static/**/*",
+    "fonts": "src/fonts/**/*"
+  },
+  "tests": {
+    "mocha": "./test/mocha/spec.js",
+    "jasmine": "./test/jasmine/spec.js",
+    "gui": "./test/browser/gui/spec_userstory.js",
+    "screenshots": "./test/browser/gui/spec_screenshots.js",
+    "pageSpeed": "./test/browser/page_speed/spec.js"
+  },
+  "validation": {
+    "html": "build/*.html",
+    "css": "build/styles/index.css",
+    "js": "src/js/**/*.js",
+    "jsFixedLinterOutput": "src/js/"
+  },
+  "configs": {
+    "jsDoc": "./configs/jsDoc.json",
+    "babel": "./configs/babel.json",
+    "serverLive": "./configs/serverLivereload.json",
+    "serverTunnel": "./configs/serverTunnel.json"
+  },
+  "commands": {
+    "serverSelenium": "./configs/shell_commands/serverSelenium.js",
+    "runCmd": "./configs/shell_commands/runCmd.js",
+    "guiTests": "./configs/shell_commands/guiTests.js",
+    "guiSreenshots": "./configs/shell_commands/takeGuiSreenshots.js",
+    "pageSpeed": "./configs/shell_commands/pageSpeed.js"
+  },
+  "docs": {
+    "jsDoc": "docs/jsDoc/README.md",
+    "scrennshotesWebSite": "prodaction/SCREENSHOTS/",
+    "scrennshotesProjectElp": "docs/images/screenshots"
+  },
+  "scrennshotes": {
+    "mainPage": "prodaction/SCREENSHOTS/main_page",
+    "aboutPage": "prodaction/SCREENSHOTS/about_page",
+    "contactsPage": "prodaction/SCREENSHOTS/contacts_page"
+  },
+  "messages": "./configs/messages.json"
+
+}
