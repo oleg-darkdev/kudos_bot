@@ -17,7 +17,7 @@ const path = {
 
 export default function (text) {
     let kudoCard = new cardPdfGenerator({
-        size: [210, 330],
+        size: [220, 335],
         layout: 'landscape',
         margins: {
             top: 0,
@@ -42,8 +42,8 @@ export default function (text) {
 
     kudoCard.font('roboto-regular')
         .fontSize(14)
-        .text(firstString, 6, 68, {
-            width: 195,
+        .text(firstString, 144, 68, {
+            width: 192,
             continued: true,
             lineGap: 4.6
 
