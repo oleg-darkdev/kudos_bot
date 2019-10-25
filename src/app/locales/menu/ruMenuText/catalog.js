@@ -4,7 +4,7 @@ export default {
     congratulations: "Поздравляю",
     proud: "Горжусь",
     creatJob: "Отличная работа",
-    verryHappy: "Очень счастлив",
+    veryHappy: "Очень счастлив",
     thankYou: "Спасибо",
     wellDone: "Отлично",
     promo: "Изображения карточек"

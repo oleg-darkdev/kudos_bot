@@ -4,7 +4,7 @@ export default {
     congratulations: "/../",
     proud: "/../",
     creatJob: "/../",
-    verryHappy: "/../",
+    veryHappy: "/../",
     thankYou: "/../",
     wellDone: "🎯",
     promo: "/../"
