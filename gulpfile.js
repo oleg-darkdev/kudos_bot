@@ -101,7 +101,7 @@ gulp.task('bundle-amd-clean', function () {
 	return del(['es5/amd']);
 });
 //
-gulp.task('es6-commonjs', ['copy'], function () {
+gulp.task('es6-commonjs', ['copyDataDir', 'copyCardsPromo'], function () {
 	return gulp
 		.src('src/app/**/*.js')
 		.pipe(
@@ -157,9 +157,14 @@ gulp.task('watch', function (done) {
 	return stream;
 });
 
-gulp.task('copy', () => {
+gulp.task('copyDataDir', () => {
 	return gulp.src('src/data/**/**/**').pipe(gulp.dest('dest/data'));
 });
+gulp.task('copyCardsPromo', () => {
+	return gulp.src('src/app/controllers/catalog/cardsPromo/**/**').pipe(gulp.dest('dest/controllers/catalog/cardsPromo/'));
+});
+
+// /cardsPromo/ru/totaly_awesome[RU].png
 // gulp.src('./src/data').pipe(gulp.dest('./dest/')));
 
 gulp.task('amd', ['amd-bundle', 'server']);
