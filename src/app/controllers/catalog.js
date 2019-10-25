@@ -1,5 +1,6 @@
 const Scene = require('telegraf/scenes/base'),
-    fs = require('fs');
+    fs = require('fs'),
+    path = require('path');
 
 const {
     enter,
@@ -106,7 +107,7 @@ catalogScene.enter((ctx) => {
                 `${textData.eB.cat.creatJob} ${textData.menuText.catalog.creatJob}`,
                 `${textData.eB.cat.thankYou} ${textData.menuText.catalog.thankYou}`
             ],
-            [`${textData.eB.cat.verryHappy} ${textData.menuText.catalog.verryHappy}`],
+            [`${textData.eB.cat.veryHappy} ${textData.menuText.catalog.veryHappy}`],
             // [`${textData.eB.backBtn} ${textData.menuText.backBtn}`],
             [`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`]
         ])
@@ -133,7 +134,7 @@ catalogScene.hears(`${textData.eB.cat.promo} ${textData.menuText.catalog.promo}`
                 `${textData.eB.cat.thankYou} ${textData.menuText.catalog.thankYou}`
             ],
             [
-                `${textData.eB.cat.verryHappy} ${textData.menuText.catalog.verryHappy}`,
+                `${textData.eB.cat.veryHappy} ${textData.menuText.catalog.veryHappy}`,
                 `${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`
             ]
         ])
@@ -143,19 +144,59 @@ catalogScene.hears(`${textData.eB.cat.promo} ${textData.menuText.catalog.promo}`
     );
 });
 
-const getDirName = require('path').dirname;
-
-
-var path = require('path');
-
-
-
+/*
+    ToDo:
+     * вике в задачу перевод моего дизайна на другие языки, а потом можно и ее заюзать
+     * по дефолту отображает карточки на английском языке (переименовать)
+     * пофиксить карточку очень счастлив
+     * добавить менюшку после команды start для выбора языка
+*/
 const imageCardTotallyAwesome = (ctx, next) => {
     ctx
         .replyWithPhoto({
-            source: fs.createReadStream(__dirname + '/totallyAwesome.jpg')
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/totaly_awesome[RU].jpg')
         }).then(() => next());
+};
+const imageCardCongralution = (ctx, next) => {
+    ctx
+        .replyWithPhoto({
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/congralutions[RU].png')
+        }).then(() => next());
+};
 
+const imageCardProud = (ctx, next) => {
+    ctx
+        .replyWithPhoto({
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/proud[RU].png')
+        }).then(() => next());
+};
+
+const imageCardWellDone = (ctx, next) => {
+    ctx
+        .replyWithPhoto({
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/well_done[RU].png')
+        }).then(() => next());
+};
+
+const imageCardСreatJob = (ctx, next) => {
+    ctx
+        .replyWithPhoto({
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/great_job[RU].png')
+        }).then(() => next());
+};
+
+const imageCardVeryHappy = (ctx, next) => {
+    ctx
+        .replyWithPhoto({
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/very_happy[RU].png')
+        }).then(() => next());
+};
+
+const imageCardThankYou = (ctx, next) => {
+    ctx
+        .replyWithPhoto({
+            source: fs.createReadStream(__dirname + '/catalog/cardsPromo/ru/thank_you[RU].png')
+        }).then(() => next());
 };
 
 
@@ -164,12 +205,42 @@ catalogScene.hears(
     imageCardTotallyAwesome,
     enter('catalogCardTotallyAwesome')
 );
-// catalogScene.hears(`${textData.eB.cat.proud} ${textData.menuText.catalog.proud}`, enter('catalogCardProud'))
-// catalogScene.hears(`${textData.eB.cat.congratulations} ${textData.menuText.catalog.congratulations}`, enter('catalogCardCongratulations'))
-// catalogScene.hears(`${textData.eB.cat.wellDone} ${textData.menuText.catalog.wellDone}`, enter('catalogCardWellDone'))
-// catalogScene.hears(`${textData.eB.cat.creatJob} ${textData.menuText.catalog.creatJob}`, enter('catalogCardCreatJob'))
-// catalogScene.hears(`${textData.eB.cat.thankYou} ${textData.menuText.catalog.thankYou}`, enter('catalogCardThankYou'))
-// catalogScene.hears(`${textData.eB.cat.verryHappy} ${textData.menuText.catalog.verryHappy}`, enter('catalogCardVerryHappy'))
+catalogScene.hears(
+    `${textData.eB.cat.proud} ${textData.menuText.catalog.proud}`,
+    imageCardProud,
+    enter('catalogCardProud')
+);
+catalogScene.hears(
+    `${textData.eB.cat.congratulations} ${textData.menuText.catalog.congratulations}`,
+    imageCardCongralution,
+    enter('catalogCardCongralution')
+);
+
+catalogScene.hears(
+    `${textData.eB.cat.wellDone} ${textData.menuText.catalog.wellDone}`,
+    imageCardWellDone,
+    enter('catalogCardWellDone')
+);
+
+catalogScene.hears(
+    `${textData.eB.cat.creatJob} ${textData.menuText.catalog.creatJob}`,
+    imageCardСreatJob,
+    enter('catalogCardСreatJob')
+);
+
+catalogScene.hears(
+    `${textData.eB.cat.veryHappy} ${textData.menuText.catalog.veryHappy}`,
+    imageCardVeryHappy,
+    enter('catalogCardVeryHappy')
+);
+
+catalogScene.hears(
+    `${textData.eB.cat.thankYou} ${textData.menuText.catalog.thankYou}`,
+    imageCardThankYou,
+    enter('catalogCardThankYou')
+);
+
+
 catalogScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'));
 
 catalogScene.on('message', (ctx) => ctx.reply(textData.msgText.ifUserSendMsgVicePressBtn));
