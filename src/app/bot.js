@@ -5,6 +5,7 @@
 //   Stage = require('telegraf/stage'),
 //   Markup = require('telegraf/markup'),
 //   Scene = require('telegraf/scenes/base');
+require('dotenv').config();
 
 import Telegraf, {
   ContextMessageUpdate
@@ -73,5 +74,7 @@ bot.command('test', (ctx) => {
   cl.log('nabled');
 
 })
+
+bot.command('test', enter('catalogCardTotallyAwesome'))
 
 bot.launch()
