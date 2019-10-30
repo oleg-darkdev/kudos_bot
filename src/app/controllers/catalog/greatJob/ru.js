@@ -29,10 +29,11 @@ catalogCardСreatJobRuScene.enter(
     }
 )
 
+
 catalogCardСreatJobRuScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardСreatJob'))
 catalogCardСreatJobRuScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'))
 catalogCardСreatJobRuScene.on('message', (ctx) => {
-    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.ruKudoCardsGen.creatJobKudoCardGen(ctx.message.text) : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
+    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.greatJobKudoCardGen(ctx.message.text, 'RU') : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
 })
 
 export default catalogCardСreatJobRuScene

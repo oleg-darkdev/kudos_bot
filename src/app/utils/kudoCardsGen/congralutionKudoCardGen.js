@@ -2,6 +2,15 @@ import cl from 'node-cl-log';
 import cardPdfGenerator from 'pdfkit';
 import fs from 'fs';
 
+
+/*
+    ToDO:
+        * отсылать юзеру pdf-файл и изображеньку для переотправки другому юзеру
+        * обсудить с Викой ньюансы косяки
+        * добавить обработку в случае ошибки
+
+
+*/
 const path = {
     fonts: {
         // robotoItalic: './dest/data/fonts/Roboto-Italic.ttf',
@@ -9,15 +18,13 @@ const path = {
         robotoRegular: './dest/data/fonts/roboto-regular.ttf',
         // helicopta: './dest/data/fonts/Helicopta.otf'
     },
-    enKudoCard: './dest/data/cardsPromo/en/very_happy[EN].png',
+    ruKudoCard: './dest/data/cardsPromo/ru/congralutions[RU].png',
     outputTicketFile: './dest/data/kudoCard.pdf'
 };
 
-
-
-export default function (text) {
+export default function (text, language) {
     let kudoCard = new cardPdfGenerator({
-        size: [210, 330],
+        size: [220, 335],
         layout: 'landscape',
         margins: {
             top: 0,
@@ -31,8 +38,10 @@ export default function (text) {
         cl.gre('PDF closed');
     });
 
+    let dirName = language.toLowerCase()
 
-    kudoCard.image(path.enKudoCard, 0, 0, {
+    // kudoCard.image(`./dest/data/cardsPromo/${dirName}/${file}[${language}].png`, 0, 0, {
+    kudoCard.image(`./dest/data/cardsPromo/${dirName}/congralutions[${language}].png`, 0, 0, {
         align: 'center',
         valign: 'center'
     });
@@ -42,8 +51,8 @@ export default function (text) {
 
     kudoCard.font('roboto-regular')
         .fontSize(14)
-        .text(firstString, 6, 68, {
-            width: 195,
+        .text(firstString, 144, 68, {
+            width: 192,
             continued: true,
             lineGap: 4.6
 

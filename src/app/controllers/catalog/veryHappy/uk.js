@@ -32,7 +32,7 @@ catalogCardVeryHappyUkScene.enter(
 catalogCardVeryHappyUkScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardVeryHappy'))
 catalogCardVeryHappyUkScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'))
 catalogCardVeryHappyUkScene.on('message', (ctx) => {
-    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.ukKudoCardsGen.verryHappyKudoCardGen(ctx.message.text) : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
+    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.veryHappyKudoCardGen(ctx.message.text, 'UK') : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
 })
 
 export default catalogCardVeryHappyUkScene

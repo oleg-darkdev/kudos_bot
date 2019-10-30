@@ -1,14 +1,17 @@
-import ruKudoCardsGen from './kudoCardsGen/ru'
-import enKudoCardsGen from './kudoCardsGen/en'
-import beKudoCardsGen from './kudoCardsGen/be'
-import ukKudoCardsGen from './kudoCardsGen/uk'
-import plKudoCardsGen from './kudoCardsGen/pl'
-
+import congralutionKudoCardGen from './kudoCardsGen/congralutionKudoCardGen';
+import greatJobKudoCardGen from './kudoCardsGen/greatJobKudoCardGen';
+import proudKudoCardGen from './kudoCardsGen/proudKudoCardGen';
+import thankYouKudoCardGen from './kudoCardsGen/thankYouKudoCardGen';
+import totalyAwesomeKudoCardGen from './kudoCardsGen/totalyAwesomeKudoCardGen';
+import veryHappyKudoCardGen from './kudoCardsGen/veryHappyKudoCardGen';
+import wellDoneKudoCardGen from './kudoCardsGen/wellDoneKudoCardGen';
 
 export default {
-    ruKudoCardsGen,
-    enKudoCardsGen,
-    plKudoCardsGen,
-    ukKudoCardsGen,
-    beKudoCardsGen
+    congralutionKudoCardGen,
+    greatJobKudoCardGen,
+    proudKudoCardGen,
+    thankYouKudoCardGen,
+    totalyAwesomeKudoCardGen,
+    veryHappyKudoCardGen,
+    wellDoneKudoCardGen
 }

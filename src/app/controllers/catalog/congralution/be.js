@@ -32,7 +32,7 @@ catalogCardCongralutionBeScene.enter(
 catalogCardCongralutionBeScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardTotallyAwesome'))
 catalogCardCongralutionBeScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'))
 catalogCardCongralutionBeScene.on('message', (ctx) => {
-    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.beKudoCardsGen.congralutionKudoCardGen(ctx.message.text) : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
+    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.congralutionKudoCardGen(ctx.message.text, 'BE') : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
 })
 
 export default catalogCardCongralutionBeScene

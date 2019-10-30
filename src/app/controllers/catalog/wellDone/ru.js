@@ -32,7 +32,7 @@ catalogCardWellDoneRuScene.enter(
 catalogCardWellDoneRuScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardWellDone'))
 catalogCardWellDoneRuScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'))
 catalogCardWellDoneRuScene.on('message', (ctx) => {
-    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.ruKudoCardsGen.wellDoneKudoCardGen(ctx.message.text) : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
+    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.wellDoneKudoCardGen(ctx.message.text, 'RU') : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
 })
 
 export default catalogCardWellDoneRuScene

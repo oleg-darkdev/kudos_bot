@@ -13,8 +13,6 @@ import kudoCardGen from '../../../utils/cardGen'
 
 const catalogCardCongralutionUkScene = new Scene('catalogCardCongralutionUk');
 
-
-
 catalogCardCongralutionUkScene.enter(
     (ctx) => {
         ctx.reply(`${textData.cmdText.catalog.enterTextForKudoCard}`, Markup.keyboard([
@@ -29,10 +27,10 @@ catalogCardCongralutionUkScene.enter(
     }
 )
 
-catalogCardCongralutionUkScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardTotallyAwesome'))
+catalogCardCongralutionUkScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardCongralution'))
 catalogCardCongralutionUkScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'))
 catalogCardCongralutionUkScene.on('message', (ctx) => {
-    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.ukKudoCardsGen.congralutionKudoCardGen(ctx.message.text) : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
+    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.congralutionKudoCardGen(ctx.message.text, 'UK') : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
 })
 
 export default catalogCardCongralutionUkScene

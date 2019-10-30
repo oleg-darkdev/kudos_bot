@@ -9,15 +9,12 @@ const path = {
         robotoRegular: './dest/data/fonts/roboto-regular.ttf',
         // helicopta: './dest/data/fonts/Helicopta.otf'
     },
-    ruKudoCard: './dest/data/cardsPromo/ru/well_done[RU].png',
     outputTicketFile: './dest/data/kudoCard.pdf'
 };
 
-
-
-export default function (text) {
+export default function (text, language) {
     let kudoCard = new cardPdfGenerator({
-        size: [210, 330],
+        size: [220, 335],
         layout: 'landscape',
         margins: {
             top: 0,
@@ -27,12 +24,14 @@ export default function (text) {
         }
     });
 
+
     kudoCard.pipe(fs.createWriteStream(path.outputTicketFile)).on('finish', function () {
         cl.gre('PDF closed');
     });
 
+    let dirName = language.toLowerCase()
 
-    kudoCard.image(path.ruKudoCard, 0, 0, {
+    kudoCard.image(`./dest/controllers/catalog/cardsPromo/${dirName}/great_job[${language}].png`, 0, 0, {
         align: 'center',
         valign: 'center'
     });
@@ -42,8 +41,8 @@ export default function (text) {
 
     kudoCard.font('roboto-regular')
         .fontSize(14)
-        .text(firstString, 6, 68, {
-            width: 195,
+        .text(firstString, 140, 76, {
+            width: 192,
             continued: true,
             lineGap: 4.6
 
