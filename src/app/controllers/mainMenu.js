@@ -1,62 +1,44 @@
-/* 
-    ToDo;
-        *  сделать парсинг нескольких индексов из Бд по одному лоту
-        *  Исходя за запроса в бд формируется языковые настроки из колонки профилей - язык  и добавить
-        * в каждый модуль меню
-
-*/const Scene = require('telegraf/scenes/base')
-
-const { enter, leave } = Stage
-import Stage from 'telegraf/stage'
-import Markup from 'telegraf/markup'
-import emodji from '../locales/emodji'
-import messagesText from '../locales/messagesText'
-import commandsText from '../locales/commandsText'
-import menuText from '../locales/mainMenuText'
-
+const Scene = require('telegraf/scenes/base'),
+    fs = require('fs')
+import cl from 'node-cl-log'
 
 const {
-    emodjiForText: eT,
-    emodjiForButtons: eB,
-    emodjiForNumbers: eN
-} = emodji;
-
-
-const { ruMenu: RU_MENU,
-    byMenu: BY_MENU,
-    enMenu: EN_MENU } = menuText;
-
-const { ruMsgTxt: RU_MESSAGES,
-    byMsgTxt: BY_MESSAGES,
-    enMsgTxt: EN_MESSAGES } = messagesText;
-
-const { ruCommandsText: RU_COMMANDS,
-    byCommandsText: BY_COMMANBDS,
-    enCommandsText: EN_COMMANBDS } = commandsText;
-
-let
-    menuButtonsTextLanguageMode = RU_MENU,
-    commandsTextLanguage = RU_COMMANDS,
-    messagesTextLanguage = RU_MESSAGES; // default
-
+    enter,
+    leave
+} = Stage
+import Stage from 'telegraf/stage'
+import Markup from 'telegraf/markup'
+import textData from '../utils/exportTextData'
 
 const mainMenuScene = new Scene('mainMenu')
-mainMenuScene.enter((ctx) => ctx.reply(
-    'Main menu', Markup
-        .keyboard([[`${eB.cat.fm} ${menuButtonsTextLanguageMode.catalog.header}`, `${eB.abo.fm} ${menuButtonsTextLanguageMode.about}`],
-            [`${eB.abo.fm} ${menuButtonsTextLanguageMode.work}`, `${eB.abo.fm} ${menuButtonsTextLanguageMode.contacts}`],
-            [`${eB.abo.fm} ${menuButtonsTextLanguageMode.store}`, `${eB.abo.fm} ${menuButtonsTextLanguageMode.settings}`],
-            [`${eB.abo.fm} ${menuButtonsTextLanguageMode.support}`, `${eB.abo.fm} ${menuButtonsTextLanguageMode.events}`]])
-      .oneTime()
-      .resize()
-      .extra()
-  )
 
-)
-mainMenuScene.hears(`${eB.cat.fm} ${commandsTextLanguage.catalog.header}`, enter('catalogStart'))
-mainMenuScene.hears(`${eB.abo.fm} ${commandsTextLanguage.about}`, ctx => ctx.reply(commandsTextLanguage.about.aboutMenu))
+mainMenuScene.enter((ctx) => {
+
+    ctx.reply(
+        `${textData.eT.mainMenu} ${textData.cmdText.mainMenu.header}`, Markup.keyboard([
+            [`${textData.eB.cat.fm} ${textData.menuText.catalog.header}`],
+            [`${textData.eB.fee.header} ${textData.menuText.feedback.header}`],
+            [
+                `${textData.eB.abo.header} ${textData.menuText.about.header}`,
+                `${textData.eB.backBtn} ${textData.menuText.backBtn}`,
+                `${textData.eB.set.header} ${textData.menuText.settings.header}`
+            ],
+        ])
+        .oneTime()
+        .resize()
+        .extra()
+    )
+})
+
+mainMenuScene.hears(`${textData.eB.cat.fm} ${textData.menuText.catalog.header}`, enter('catalog'))
+mainMenuScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('chooseLang'))
+mainMenuScene.hears(`${textData.eB.abo.fm} ${textData.cmdText.about}`, ctx => ctx.reply(textData.cmdText.about.aboutMenu))
 
 
+// mainMenuScene.hears(`${textData.eB.abo.header} ${textData.menuText.about.header}`, enter('about'))
+// mainMenuScene.hears(`${textData.eB.set.header} ${textData.menuText.settings.header}`, enter('settings'))
+// mainMenuScene.hears(`${textData.eB.fee.header} ${textData.menuText.feedback.header}`, enter('feedback'))
+// mainMenuScene.on('message', (ctx) => ctx.reply(textData.msgText.ifUserSendMsgVicePressBtn))
 
 
 
