@@ -111,18 +111,22 @@ const {
     // plCommandsText: PL_COMMANBDS,
 } = commandsText;
 
-menuText = RU_MENU,
-    cmdText = RU_COMMANDS,
-    msgText = RU_MESSAGES; // default
+menuText = RU_MENU, cmdText = RU_COMMANDS, msgText = RU_MESSAGES;
 
-lang = allLangs.ru; // del!!!!!
+const setLang = (lang) => {
+    if (lang == 'en') menuText = EN_MENU, cmdText = EN_MESSAGES, msgText = EN_MESSAGES;
+    if (lang == 'be') menuText = BE_MENU, cmdText = BE_MESSAGES, msgText = BE_MESSAGES;
+    if (lang == 'pl') menuText = Pl_MENU, cmdText = PL_MESSAGES, msgText = PL_MESSAGES;
+    if (lang == 'uk') menuText = UK_MENU, cmdText = UK_MESSAGES, msgText = UK_MESSAGES;
+    if (lang == 'ru') menuText = RU_MENU, cmdText = RU_COMMANDS, msgText = RU_MESSAGES;
+}
 
 module.exports = {
-    lang,
     eT,
     eB,
     eN,
     menuText,
     cmdText,
-    msgText
+    msgText,
+    setLang
 }
