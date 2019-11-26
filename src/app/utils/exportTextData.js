@@ -15,7 +15,11 @@ const {
 } = emoji;
 
 
-
+let links = {
+    dozaCommandChat: '-1001263977856',
+    agileGamesCommunityChat: '-1001263977856',
+    darkDevBrandAllChat: '-1001263977856'
+}
 
 let allLangs = {
     en: 'en-gb',
@@ -25,66 +29,23 @@ let allLangs = {
     ru: 'ru'
 }
 
-let idClient = 18238 // получаем через телеграмм апи
-// let clientProfileData = requestFunc(userSqlRequests.getSettingsForProfile(idClient))
+
 let menuText = "",
     cmdText = "",
     msgText = "",
     lang = ""
 
 
-/*
-if (clientProfileData.length != 0) {
+// записываем в стор выбранный язык
+// ..... = language
+// lang = language;
 
-    // в глобальный стор присвоить значения
-    // clientProfileData[0].firstName,
-    // clientProfileData[0].secondName,
-    // clientProfileData[0].id,
-    // clientProfileData[0].valute,
-    // clientProfileData[0].phoneNumber,
-    // clientProfileData[0].country,
-    // clientProfileData[0].town,
-    // clientProfileData[0].readInstruction,
-    // clientProfileData[0].email,
-    // clientProfileData[0].orders,
-    // clientProfileData[0].tickets
+// let languageMode = validateLanguage(language);
+// menuText = languageMode.menuText,
+// cmdText = languageMode.cmdText,
+// msgText = languageMode.msgText;
 
-    // let lang = clientProfileData[0].language;
-} else {
-    // создаем новую запись о новом клиенте
-// парсим данные из телеги
-    let firstName = "",
-        secondName = "",
-        middleName = "",
-        language = "",
-        phoneNumber= "",
-        id = "",
-        email = "",
-        country = "",
-        town = "",
-        tickets = "0",
-        orders = "0",
-        readInstruction = false,
-        dateFirstMessage = "",
-        telegrammInfo= "";
 
-    let valute = language,
-
-    // setData('users',
-    //     ['firstName', 'secondName', 'middleName', 'language', 'valute', 'phoneNumber', 'id', 'email', 'country', 'town', 'orders', 'tickets', 'readInstruction', 'dateFirstMessage', 'telegrammInfo' ],
-    //     `${firstName}, ${secondName}, ${middleName}, ${language}, ${phoneNumber}, ${id}, ${email}, ${country}, ${town}, ${orders}, ${tickets}, ${readInstruction}, ${dateFirstMessage}, ${telegrammInfo}`
-    // )
-
-    // записываем в стор выбранный язык
-    // ..... = language
-    // lang = language;
-
-    // let languageMode = validateLanguage(language);
-    // menuText = languageMode.menuText,
-    // cmdText = languageMode.cmdText,
-    // msgText = languageMode.msgText;
-}
- */
 
 // удалить этот блок после создания проверки в начале общения
 const {
@@ -128,5 +89,6 @@ module.exports = {
     menuText,
     cmdText,
     msgText,
-    setLang
+    setLang,
+    links
 }
