@@ -52,10 +52,16 @@ import catalogCardThankYouBeScene from "../../controllers/catalog/thankYou/be"
 
 
 // import catalogCardThankYou from "../../controllers/catalog/thankYou"
+import catalogsendPdfOrImg from "../../controllers/catalog/sendPdfOrImg"
+import catalogsendPdfOrImgContributer from "../../controllers/catalog/sendPdfOrImgContributer"
+import catalogSendFinalImgKudoCard from "../../controllers/catalog/sendPdfOrImg/sendFinalImgKudoCard"
 
 
 export default [
     catalogScene,
+    catalogsendPdfOrImg,
+    catalogsendPdfOrImgContributer,
+    catalogSendFinalImgKudoCard,
 
     catalogCardTotallyAwesomeScene,
     catalogCardTotallyAwesomeRuScene,
