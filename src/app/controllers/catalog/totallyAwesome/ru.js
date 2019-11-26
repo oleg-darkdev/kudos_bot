@@ -11,10 +11,11 @@ import Markup from 'telegraf/markup'
 import textData from '../../../utils/exportTextData'
 import kudoCardGen from '../../../utils/cardGen'
 
+function createKudoCard(ctx, language) {
+    kudoCardGen.totalyAwesomeKudoCardGen(ctx.message.text, language)
+}
+
 const catalogCardTotallyAwesomeRuScene = new Scene('catalogCardTotallyAwesomeRu');
-
-
-
 catalogCardTotallyAwesomeRuScene.enter(
     (ctx) => {
         ctx.reply(`${textData.cmdText.catalog.enterTextForKudoCard}`, Markup.keyboard([
@@ -31,9 +32,18 @@ catalogCardTotallyAwesomeRuScene.enter(
 
 catalogCardTotallyAwesomeRuScene.hears(`${textData.eB.backBtn} ${textData.menuText.backBtn}`, enter('catalogCardTotallyAwesome'))
 catalogCardTotallyAwesomeRuScene.hears(`${textData.eB.goMainMenuBtn} ${textData.menuText.goMainMenuBtn}`, enter('mainMenu'))
-catalogCardTotallyAwesomeRuScene.on('message', (ctx) => {
-    let msgLength = (ctx.message.text.length < 140) ? kudoCardGen.congralutionKudoCardGen(ctx.message.text, 'totaly_awesome', 'RU') : ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
-})
 
+catalogCardTotallyAwesomeRuScene.on('message', (ctx) => {
+    let userIsClient = ctx.favoriteUsers.client;
+
+    if (ctx.message.text.length > 140) ctx.reply(`${textData.msgText.pleaseEnterShortMsg.start} ${ctx.message.text.length}. ${textData.msgText.pleaseEnterShortMsg.end}`)
+    else if (userIsClient == true) {
+        createKudoCard(ctx, 'RU')
+        ctx.scene.enter('catalogsendPdfOrImg')
+    } else {
+        createKudoCard(ctx, 'RU')
+        ctx.scene.enter('catalogsendPdfOrImgContributer')
+    }
+})
 
 export default catalogCardTotallyAwesomeRuScene

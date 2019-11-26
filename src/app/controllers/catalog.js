@@ -1,6 +1,7 @@
 const Scene = require('telegraf/scenes/base'),
     fs = require('fs'),
     path = require('path');
+import cl from 'node-cl-log'
 
 const {
     enter,
@@ -67,29 +68,6 @@ let albumImagesCudoCards = (ctx, next) => {
         .then(() => next());
 };
 
-// ,
-//         {
-//             media: {
-//                 source: '/cats/cat1.jpeg'
-//             },
-//             caption: 'From file',
-//             type: 'photo'
-//         },
-//         {
-//             media: {
-//                 source: fs.createReadStream('/cats/cat2.jpeg')
-//             },
-//             caption: 'From stream',
-//             type: 'photo'
-//         },
-//         {
-//             media: {
-//                 source: fs.readFileSync('/cats/cat3.jpeg')
-//             },
-//             caption: 'From buffer',
-//             type: 'photo'
-//         }
-
 catalogScene.enter((ctx) => {
     ctx.reply(
         textData.cmdText.catalog.header,
@@ -146,10 +124,9 @@ catalogScene.hears(`${textData.eB.cat.promo} ${textData.menuText.catalog.promo}`
 
 /*
     ToDo:
-     * вике в задачу перевод моего дизайна на другие языки, а потом можно и ее заюзать
      * по дефолту отображает карточки на английском языке (переименовать)
      * пофиксить карточку очень счастлив
-     * добавить менюшку после команды start для выбора языка
+
 */
 const imageCardTotallyAwesome = (ctx, next) => {
     ctx
@@ -213,6 +190,7 @@ catalogScene.hears(
 catalogScene.hears(
     `${textData.eB.cat.congratulations} ${textData.menuText.catalog.congratulations}`,
     imageCardCongralution,
+
     enter('catalogCardCongralution')
 );
 
