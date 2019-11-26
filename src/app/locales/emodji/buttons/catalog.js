@@ -7,6 +7,11 @@ export default {
     veryHappy: "/../",
     thankYou: "/../",
     wellDone: "🎯",
-    promo: "/../"
+    promo: "/../",
+    pdfFormat: "/../",
+    jpgFormat: "/../",
+    allFormat: "/../",
+    doza: "/../",
+    agileGamesCommunity: "/../"
 
 }

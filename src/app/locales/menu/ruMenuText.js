@@ -22,6 +22,7 @@ export default {
     backBtn: "Назад",
     nextBtn: "Далее",
     langSet: {
+        header: 'Выберите предпочитаемый язык',
         ru: "Русский",
         be: "Беларуская",
         en: "English",

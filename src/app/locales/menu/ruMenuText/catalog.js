@@ -7,7 +7,12 @@ export default {
     veryHappy: "Очень счастлив",
     thankYou: "Спасибо",
     wellDone: "Отлично",
-    promo: "Изображения карточек"
+    promo: "Изображения карточек",
+    pdfFormat: ".pdf",
+    jpgFormat: "в *.jpg.",
+    allFormat: "Оба формата",
+    doza: "в чат команды doza",
+    agileGamesCommunity: "в чат Agile Games Community"
 }
 
 

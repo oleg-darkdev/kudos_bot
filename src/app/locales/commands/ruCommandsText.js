@@ -30,29 +30,31 @@ export default {
     officialSiteBtn: "переход на сайт",
     commandsList: {
         langSet: {
-        ru: "/langru",
-        be: "/langbe",
-        en: "/langen",
-        uk: "/languk",
-        pl: "/langpl",
+            ru: "/langru",
+            be: "/langbe",
+            en: "/langen",
+            uk: "/languk",
+            pl: "/langpl",
         }
     },
     langSet: {
-        ru: `👋 Hello ! 
+        header: 'Выберите предпочитаемый язык',
+        hiFavoriteUser: "Здарова",
+        ru: `👋 Hello !
         You can change your language - ru:`,
-        be: `👋 Hello ! 
+        be: `👋 Hello !
         You can change your language - be:`,
-        en: `👋 Hello ! 
+        en: `👋 Hello !
         You can change your language:`,
-        uk: `👋 Hello ! 
+        uk: `👋 Hello !
         You can change your language - uk:`,
-        pl: `👋 Hello ! 
+        pl: `👋 Hello !
         You can change your language -pl:`,
     }
-        
-        
-        
-        
-        
+
+
+
+
+
 
 }

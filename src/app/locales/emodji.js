@@ -4,7 +4,7 @@ import emodjiForNumbers from "./emodji/numbers"
 
 
 // First 3 letters on word
-const { 
+const {
     addResumeButtonsEmodji: addResumeBtn,
     aboutButtonEmodji: abo,
     catalogButtonEmodji: cat,
@@ -21,6 +21,7 @@ const {
 const {
     addResumeTextEmodji: addResumeText,
     adminTextEmodji: admText,
+    adminTxt,
     other,
     events
 } = textEmodji;
@@ -29,7 +30,7 @@ const {
 
 export default {
     emodjiForButtons: {
-    // On Buttons    
+        // On Buttons
         addResumeBtn,
         nextBtn: "➡️",
         backBtn: "⬅️",
@@ -59,13 +60,18 @@ export default {
         set,
         wor,
         sto,
-        eve, 
+        eve,
     },
     emodjiForText: {
         // On Text
         addResumeText,
         admText,
         events,
+        langSet: {
+            hiFavoriteUser: "/../",
+            header: ''
+        },
+        adminTxt,
         mainMenu: "/../",
         other,
         info: "ℹ️",
@@ -73,5 +79,5 @@ export default {
         warning: "🔵"
 
     },
-    emodjiForNumbers 
+    emodjiForNumbers
 }

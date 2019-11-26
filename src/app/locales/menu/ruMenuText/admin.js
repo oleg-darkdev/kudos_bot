@@ -18,13 +18,17 @@ export default {
         },
     },
     events: {
-        header:"Мероприятия",
+        header: "Мероприятия",
         new: {
             header: "Создать новое",
             validateError: `Правка`,
-            validateGood: `Добавить в БД`, 
+            validateGood: `Добавить в БД`,
         },
         now: "Текущее"
+    },
+    otherOurChat: {
+        doza: '',
+        gamesCommunity: ''
     }
-    
+
 }
